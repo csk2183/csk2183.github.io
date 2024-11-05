@@ -32,3 +32,24 @@ document.addEventListener("DOMContentLoaded", () => __awaiter(void 0, void 0, vo
         console.error("Error loading posts:", error);
     }
 }));
+function loadNavbar() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const navbarContainer = document.getElementById("navbar-container");
+        if (navbarContainer) {
+            try {
+                const response = yield fetch("navbar.html");
+                if (response.ok) {
+                    navbarContainer.innerHTML = yield response.text();
+                }
+                else {
+                    console.error("Navbar loading failed:", response.statusText);
+                }
+            }
+            catch (error) {
+                console.error("Error loading navbar:", error);
+            }
+        }
+    });
+}
+// Load navbar on DOMContentLoaded
+document.addEventListener("DOMContentLoaded", loadNavbar);
