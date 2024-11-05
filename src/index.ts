@@ -28,7 +28,8 @@ async function loadNavbar() {
   const navbarContainer = document.getElementById("navbar-container");
   if (navbarContainer) {
     try {
-      const response = await fetch("navbar.html");
+      const response = await fetch("navbar.html?v=1");
+
       if (response.ok) {
         navbarContainer.innerHTML = await response.text();
       } else {

@@ -37,7 +37,7 @@ function loadNavbar() {
         const navbarContainer = document.getElementById("navbar-container");
         if (navbarContainer) {
             try {
-                const response = yield fetch("navbar.html");
+                const response = yield fetch("navbar.html?v=1");
                 if (response.ok) {
                     navbarContainer.innerHTML = yield response.text();
                 }
