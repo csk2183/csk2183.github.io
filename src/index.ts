@@ -24,3 +24,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Error loading posts:", error);
   }
 });
+async function loadNavbar() {
+  const navbarContainer = document.getElementById("navbar-container");
+  if (navbarContainer) {
+    try {
+      const response = await fetch("navbar.html");
+      if (response.ok) {
+        navbarContainer.innerHTML = await response.text();
+      } else {
+        console.error("Navbar loading failed:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error loading navbar:", error);
+    }
+  }
+}
+
+// Load navbar on DOMContentLoaded
+document.addEventListener("DOMContentLoaded", loadNavbar);
